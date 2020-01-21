@@ -1,9 +1,9 @@
 import { Mongo } from 'meteor/mongo';
-import { Factory } from 'meteor/dburles:factory';
-import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { Factory } from 'meteor/factory';
 import faker from 'faker';
-import incompleteCountDenormalizer from './incompleteCountDenormalizer.js';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
+import incompleteCountDenormalizer from './incompleteCountDenormalizer.js';
 import { Lists } from '../lists/lists.js';
 
 class TodosCollection extends Mongo.Collection {
@@ -14,11 +14,13 @@ class TodosCollection extends Mongo.Collection {
     incompleteCountDenormalizer.afterInsertTodo(ourDoc);
     return result;
   }
+
   update(selector, modifier) {
     const result = super.update(selector, modifier);
     incompleteCountDenormalizer.afterUpdateTodo(selector, modifier);
     return result;
   }
+
   remove(selector) {
     const todos = this.find(selector).fetch();
     const result = super.remove(selector);
@@ -27,7 +29,7 @@ class TodosCollection extends Mongo.Collection {
   }
 }
 
-export const Todos = new TodosCollection('todos');
+export const Todos = new TodosCollection('Todos');
 
 // Deny all client-side updates since we will be using methods to manage this collection
 Todos.deny({
@@ -37,10 +39,6 @@ Todos.deny({
 });
 
 Todos.schema = new SimpleSchema({
-  _id: {
-    type: String,
-    regEx: SimpleSchema.RegEx.Id,
-  },
   listId: {
     type: String,
     regEx: SimpleSchema.RegEx.Id,
@@ -49,7 +47,6 @@ Todos.schema = new SimpleSchema({
   text: {
     type: String,
     max: 100,
-    optional: true,
   },
   createdAt: {
     type: Date,

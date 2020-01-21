@@ -1,16 +1,8 @@
-[![Circle CI](https://circleci.com/gh/meteor/todos.svg?style=svg)](https://circleci.com/gh/meteor/todos)
+[![Circle CI](https://circleci.com/gh/meteor/todos/tree/react.svg?style=svg)](https://circleci.com/gh/meteor/todos/tree/react)
 
 This is a Todos example app built on the principles described in the [Meteor Guide](http://guide.meteor.com/structure.html). 
 
-## Versions
-
-This version (the `master`) branch uses the [Blaze](http://guide.meteor.com/blaze.html) rendering library, with code written in ES2015 JavaScript.
-
-The [`react`](https://github.com/meteor/todos/tree/react) branch implements the same application using [React](http://guide.meteor.com/react.html)
-
-The [`coffeescript`](https://github.com/meteor/todos/tree/coffeescript) branch implements this (the Blaze) version of the app in CoffeeScript.
-
-Note that attempts will be made to keep the branches up to date but this isn't guaranteed.
+This branch (`react`) implements the UI in [React](https://facebook.github.io/react/index.html). You can read more about using React in Meteor in the [Meteor guide article on the subject](http://guide.meteor.com/v1.3/react.html).
 
 ### Running the app
 
@@ -26,4 +18,3 @@ To lint:
 ```bash
 meteor npm run lint
 ```
-
