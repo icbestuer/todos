@@ -4,9 +4,7 @@ import { _ } from 'meteor/underscore';
 
 // Don't let people write arbitrary data to their 'profile' field from the client
 Meteor.users.deny({
-  update() {
-    return true;
-  },
+  update() { return true; },
 });
 
 // Get a list of all accounts methods by running `Meteor.server.method_handlers` in meteor shell
@@ -25,6 +23,7 @@ const AUTH_METHODS = [
   'ATRemoveService',
   'ATCreateUserServer',
   'ATResendVerificationEmail',
+  'findUserByEmail',
 ];
 
 if (Meteor.isServer) {

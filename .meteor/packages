@@ -33,7 +33,7 @@ mdg:validation-error
 universe:i18n
 
 # accounts
-accounts-password@1.5.1
+accounts-password
 
 # mobile
 crosswalk@1.7.1

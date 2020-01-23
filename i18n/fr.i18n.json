@@ -18,6 +18,7 @@
       "makeListPublic": "Ouvrir la liste pour le public",
       "makeListPrivate": "Fermer la liste au public",
       "deleteList": "Effacer la liste",
+      "shareList": "Partager la liste",
       "cancel": "Annuler",
       "typeToAdd": "Tapez pour ajouter de nouvelles tâches"
     },

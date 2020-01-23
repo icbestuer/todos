@@ -5,6 +5,7 @@ import { DDPRateLimiter } from 'meteor/ddp-rate-limiter';
 import { _ } from 'meteor/underscore';
 
 import { Lists } from './lists.js';
+import { SharedLists } from '../sharedLists/sharedLists.js';
 
 const LIST_ID_ONLY = new SimpleSchema({
   listId: { type: String },
@@ -127,6 +128,7 @@ export const remove = new ValidatedMethod({
     Lists.remove(listId);
   },
 });
+
 
 // Get list of all method names on Lists
 const LISTS_METHODS = _.pluck([

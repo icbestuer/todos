@@ -18,6 +18,7 @@
       "makeListPublic": "Make list public",
       "makeListPrivate": "Make list private",
       "deleteList": "Delete list",
+      "shareList": "Share list",
       "cancel": "Cancel",
       "typeToAdd": "Type to add new tasks"
     },

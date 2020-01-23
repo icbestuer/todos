@@ -1,4 +1,5 @@
 /* global confirm */
+/* global prompt */
 /* eslint-disable no-alert, no-restricted-globals */
 
 import React, { useRef, useEffect, useState } from 'react';
@@ -15,6 +16,7 @@ import {
   remove,
 } from '../../api/lists/methods.js';
 import { insert } from '../../api/todos/methods.js';
+import { share } from '../../api/sharedLists/methods.js';
 
 const ListHeader = ({ list }) => {
   const history = useHistory();
@@ -43,6 +45,17 @@ const ListHeader = ({ list }) => {
         listId: list._id,
         newName: listNameRef.current.value,
       }, displayError);
+    }
+  };
+
+  const shareList = () => {
+    const message = `${i18n.__('components.listHeader.shareConfirm')} ${list.name}?`;
+
+    const mail = prompt(message, '');
+    console.log(mail);
+    console.log(list._id);
+    if (mail != null) {
+      share.call({ userToShare: mail, listId: list._id }, displayError);
     }
   };
 
@@ -140,6 +153,12 @@ const ListHeader = ({ list }) => {
           <span className="icon-cog" />
         </div>
         <div className="options-web">
+          <a className="nav-item share" onClick={shareList}>
+            <span
+              className="icon-share"
+              title={i18n.__('components.listHeader.shareList')}
+            />
+          </a>
           <a className="nav-item" onClick={toggleListPrivacy}>
             {list.userId
               ? (
